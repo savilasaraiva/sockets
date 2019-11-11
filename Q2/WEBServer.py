@@ -14,6 +14,7 @@ while True:
     connectionSocket, addr = serverSocket.accept()
 
     try:
+        message = ''
         message = connectionSocket.recv(1024)
         print(message)
         filename = message.split()[1]
