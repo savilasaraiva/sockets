@@ -1,4 +1,4 @@
-﻿# coding: utf-8
+﻿# encoding: utf-8
 # o modulo socket e a base para toda a comunicacao Python em rede
 from socket import *
 from datetime import datetime
@@ -19,7 +19,7 @@ message = 'Hello'
 # buffer de 2048
 pings_numbers = 1
 
-for pings_numbers in range(1,11) :
+for pings_numbers in range(1, 11):
     time_envio = datetime.now()
     clientSocket.sendto(message.encode(), (serverName, serverPort))
 
@@ -27,7 +27,8 @@ for pings_numbers in range(1,11) :
         time_recebido = datetime.now()
         modifiedMessage, serverAddress = clientSocket.recvfrom(1024)
         RTT = time_recebido - time_envio
-        print("Ping ", pings_numbers, "hora: ", time_envio.hour, ":", time_envio.minute, ":", time_envio.second, " RTT: ", RTT, "segundos")
+        print("Ping ", pings_numbers, "hora: ", time_envio.hour, ":",
+              time_envio.minute, ":", time_envio.second, " RTT: ", RTT, "segundos")
     except timeout:
         print("Solicitação expirada")
         continue
